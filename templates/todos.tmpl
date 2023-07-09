@@ -1,0 +1,13 @@
+{{define "todos"}}
+    <ul id="todos">
+        {{if not .Todos}}
+            <li>No todos!</li>
+        {{else}}
+            {{range .Todos}}
+                {{template "todo" .}}
+            {{end}}
+        {{end}}
+    </ul>
+{{end}}
+
+{{template "todos" .}}

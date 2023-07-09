@@ -1,0 +1,13 @@
+{{define "todo"}}
+<li id="todo">
+    <form hx-put="/api/todo" hx-trigger="submit" hx-target="#todos" hx-swap="outerHTML">
+        <input name="id" readonly value="{{.Id}}" type="hidden"/>
+        <input name="title" value="{{.Title}}" />
+        <input name="completed" type="checkbox" {{if .Completed}}checked{{end}} />
+        <button type="submit" name="button" value="update">Save</button>
+        <button name="button" value="delete" type="submit">Delete Todo</button>
+    </form>
+</li>
+{{end}}
+
+{{template "todo" .}}
